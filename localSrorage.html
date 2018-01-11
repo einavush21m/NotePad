@@ -1,0 +1,44 @@
+<html>
+    <head>
+     <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+            
+        <script>
+            $(function(){//main
+                   var counter=0; 
+             var savedTitle = localStorage['title'] ;//'שומר את מה שכתבנו בלוקל סטורג
+             var savedNote = localStorage['note'] ;
+                $('#title').val(savedTitle); /*keep after refresh or close th file*/  
+                $('#note').val(savedNote);
+                
+            setInterval(function(){//first parmater what to do
+                var title=$('#title').val();// מחזיר ערך לimput
+                var note=$('#note').val();//id note פונה ל
+                
+                localStorage['title']=title;//like database, array & put in this area our title
+                localStorage['note']=note;//put in this area the note
+                counter++;
+                $('#cpunterElament').html(counter);//print the counter every second
+ /*console.log(title);//מדפיס ופונה לכתותרת*/ 
+                  },1000);//כל כמה זמן לבצע 
+            });
+            
+        </script>
+
+    
+    </head>
+    <body>
+
+<form><!--טופס-->
+        <input type="text" id="title" /><!--איזור כותרת הטקסט-->
+        <br />
+            <textarea id="note" rows="10" cols="50"></textarea><!--אזור הטקסט שנכתוב בדפדפן-->
+    
+        </form><!--/טופס-->
+        <hr />
+       Note saved <span id="cpunterElament">0</span> times<!--save the elment-->
+    </body>
+
+</html>
